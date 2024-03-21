@@ -1,98 +1,128 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Homepage</title>
-    <style>
-      h1, h2{
-        text-align: center;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{product['name']}} - The Phone Shop</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
 
-      img {
-        height: 360px;
-        width: 100%;
-        object-fit: cover;
-      }
-      body {
-        font-family: monospace;
-        font: size; 18px;
-      }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
 
-      #product-image {
-        height: 300px;
-        width: 300px;
-      }
+    img.banner-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
 
-      #product-section {
-        text-align: center;
-      }
+    .product-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin: 0 auto; /* Center the image */
+    }
 
-      p {
-        max-width: 1000px;
-        text-align: left;
-        margin: 0 auto;
-      }
+    .product-section, .order-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
 
-      #order-section {
-        text-align: center;
-        border: solid;
-        border-width: 1px;
-        max-width: 350px;
-        margin: 0 auto;
-        margin-top: 25px;
-      }
+    .order-section {
+      border: solid 1px #ccc;
+      margin-top: 25px;
+      padding: 20px;
+      background: white;
+    }
 
-      #buy-button {
-        font-size: 23px;
-        background-color: #6f95ee;
-        color: white;
-        border-radius: 20px;
-        margin: 20px;
-      }
+    .buy-button {
+      font-size: 20px;
+      background-color: #6f95ee;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
 
-      input {
-        margin: 10px;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <h1>The Phone Shop</h1>
+    .buy-button:hover {
+      background-color: #5a82e0;
+    }
 
-    <img src="static/ThePhoneShop Banner.png" accesskey>
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
 
-    <div id="product-section">
-    <h1>{{product['name']}}</h1>
-    <img id="product-image" src={{product['image']}}>
+    input[type="submit"] {
+      background-color: #6f95ee;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-    <h2>Description</h2>
-    <p>{{product['desc']}}</p>
-    </div>  
+    input[type="submit"]:hover {
+      background-color: #5a82e0;
+    }
 
-    <div id="order-section">"
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="product-section">
+      <h1>{{product['name']}}</h1>
+      <img class="product-image" src={{product['image']}} alt="{{product['name']}}">
+      <h2>Description</h2>
+      <p>{{product['desc']}}</p>
+    </section>  
+
+    <section class="order-section">
       <h2>Order</h2>
-
-
       <form action='/browse-products/product-page/receipt' method="post">
-        <label for="name">Name</label><br>
-        <input type="text" name="name"><br>
-  
-        <label for="email">Email</label><br>
-        <input type="email" name="email"><br>
-  
-        <label for="address">Address</label><br>
-        <input type="text" name="address"><br>
-  
-        <label for="card">Card Number</label><br>
-        <input type="text" name="card"><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
 
-        <input type="hidden" name="product-name" value"{{product['name']}}">
-        <input type="hidden" name="product-price" value"{{product['price']}}">
-  
-        <input id="buy-botton" type="submit" value="Buy">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address">
+
+        <label for="card">Card Number:</label>
+        <input type="text" id="card" name="card">
+
+        <input type="hidden" name="product-name" value="{{product['name']}}">
+        <input type="hidden" name="product-price" value="{{product['price']}}">
+
+        <input class="buy-button" id="buy-button" type="submit" value="Buy">
       </form>  
-      
-      
-    </div>  
-    
-  </body>
+    </section> 
+  </main>
+</body>
 </html>

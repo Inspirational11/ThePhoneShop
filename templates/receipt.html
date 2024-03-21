@@ -1,64 +1,102 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Homepage</title>
-    <style>
-      h1, h2{
-        text-align: center;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receipt - The Phone Shop</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
 
-      img {
-        height: 360px;
-        width: 100%;
-        object-fit: cover;
-      }
-      body {
-        font-family: monospace;
-        font: size; 18px;
-      }
+    h1, h2 {
+      text-align: center;
+    }
 
-      input {
-        font-size: 23px;
-        background-color: #6f95ee;
-        color: white;
-        display: block;
-        margin: 0 auto;
-      }
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
 
-      #message {
-        text-align: center;
-      }
+    .message {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-      #receipt {
-        border: solid;
-        border-width: 1px;
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 10px;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <h1>The Phone Shop</h1>
+    .receipt {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
 
-    <a href="/">
-      <img src="static/ThePhoneShop Banner.png" accesskey>
-    </a>  
-    
-    
-    <p id="message">Thanks for the purchase. Please review your order details below.</p>
+    .receipt h2 {
+      background: #6f95ee;
+      color: white;
+      padding: 10px;
+      margin: -20px -20px 20px -20px;
+    }
 
-    <div id="receipt">
-      <h2>Receipt</h2>
+    .receipt p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
 
-      <p>Name: {{order['name']}}</p>
-      <p>Email: {{order['email']}}</p>
-      <p>Address: {{order['address']}}</p>
-      <p>Item: {{order['product-name']}}</p>
-      <p>price: {{order['product-price']}}</p>
-      
-    </div>  
+    .receipt-item {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
 
-  </body>
+    .receipt-price {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer-link {
+      color: #6f95ee;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img class="banner-image" src="static/ThePhoneShop Banner.png" alt="The Phone Shop">
+  </header>
+
+  <section class="message">
+    <h1>Thank You!</h1>
+    <p>Thanks for your purchase. Please review your order details below.</p>
+  </section>
+
+  <div class="receipt">
+    <h2>Receipt</h2>
+    <p class="receipt-item"><strong>Name:</strong> {{order['name']}}</p>
+    <p class="receipt-item"><strong>Email:</strong> {{order['email']}}</p>
+    <p class="receipt-item"><strong>Address:</strong> {{order['address']}}</p>
+    <p class="receipt-item"><strong>Item:</strong> {{order['product-name']}}</p>
+    <p class="receipt-price"><strong>Price:</strong> {{order['product-price']}}</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 The Phone Shop. All rights reserved.</p>
+    <a class="footer-link" href="/">Back to Homepage</a>
+  </footer>
+
+</body>
 </html>

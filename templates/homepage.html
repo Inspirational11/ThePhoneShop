@@ -1,44 +1,63 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Homepage</title>
-    <style>
-      h1, h2{
-        text-align: center;
-      }
-      
-      img {
-        height: 360px;
-        width: 100%;
-        object-fit: cover;
-      }
-      body {
-        font-family: monospace;
-        font: size; 18px;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Phone Shop</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    :root {
+      --main-bg-color: #6f95ee;
+      --text-color: #fff;
+      --btn-hover-color: #5a82e0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 18px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .custom-btn {
+      background-color: var(--main-bg-color);
+      color: var(--text-color);
+      border-radius: 20px;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+    .custom-btn:hover {
+      background-color: var(--btn-hover-color);
+    }
+    .jumbotron {
+      padding: 2rem 1rem;
+      background-color: var(--main-bg-color);
+      color: var(--text-color);
+      border-radius: 0;
+    }
+    /* Rest of your custom styles */
+  </style>
+</head>
+<body>
 
-      input {
-        font-size: 23px;
-        background-color: #6f95ee;
-        color: white;
-        display: block;
-        margin: 0 auto;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <h1>The Phone Shop</h1>
+  <div class="jumbotron text-center">
+    <h1 class="display-4">The Phone Shop</h1>
+    <p class="lead">Your one-stop-shop for the latest smartphones.</p>
+    <hr class="my-4">
+    <p>Explore our products and find your perfect phone today.</p>
+    <a class="btn custom-btn btn-lg" href="browse-products" role="button">Browse Products</a>
+  </div>
 
-    <img src="static/ThePhoneShop Banner.png" accesskey>
-
+  <div class="container">
     <h2>About Us</h2>
+    <p>ThePhoneShop, established in 2003, is your one-stop-shop for the latest smartphones, accessories, and expert repair services...</p>
+    <!-- Additional content here -->
+  </div>
 
-    <p>ThePhoneShop, established in 2003, is your one-stop-shop for the latest smartphones, accessories, and expert repair services. Our mission is to provide high-quality devices for all budgets and lifestyles. Our knowledgeable staff is always ready to assist you in finding the perfect product. We also offer comprehensive repair services for various phone issues. At ThePhoneShop, customer satisfaction is our top priority.</p>
 
-    <form action="browse-products">
-      <input type="submit" value="Browse">
-    </form>
-    
-  </body>
-</html>
+  <footer class="text-center">
+    <img src="static/ThePhoneShop Banner.png" alt="The Phone Shop Banner" style="width: 1000px;         height: auto;">
+  </footer>
+  
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4
